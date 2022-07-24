@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const port = 3001;
-const { connect } = require("./db.config");
+const db = require("./db.config");
 
-connect();
+db.connect();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
