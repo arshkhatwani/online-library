@@ -24,4 +24,23 @@ const uploadBook = async (req, res) => {
   }
 };
 
-module.exports = { uploadBook };
+const getBooks = async (req, res) => {
+  try {
+    var { keyword } = req.query;
+    keyword = keyword || "";
+
+    const exp1 = { title: { $regex: `.*${keyword}.`, $options: "i" } };
+    const exp2 = { author: { $regex: `.*${keyword}.`, $options: "i" } };
+
+    const books = await bookModel.find({
+      $or: [exp1, exp2],
+    });
+
+    res.status(200).json(books);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+};
+
+module.exports = { uploadBook, getBooks };
