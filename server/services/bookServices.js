@@ -3,7 +3,8 @@ const bookModel = require("../models/bookModel");
 const uploadBook = async (req, res) => {
   try {
     const _id = req.savedBookId;
-    var { title, author, category, publication, publishYear } = req.body;
+    var { title, author, category, publication, publishYear, coverFileType } =
+      req.body;
     publishYear = parseInt(publishYear) || 0;
 
     const newData = new bookModel({
@@ -13,6 +14,7 @@ const uploadBook = async (req, res) => {
       category,
       publication,
       publishYear,
+      coverFileType,
     });
 
     await newData.save();

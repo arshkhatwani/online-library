@@ -10,6 +10,9 @@ const bookFilter = (req, file, cb) => {
 };
 
 const bookCoverFilter = (req, file, cb) => {
+  if (file.mimetype == "image/jpeg") req.body.coverFileType = "jpeg";
+  else if (file.mimetype == "image/png") req.body.coverFileType = "png";
+
   if (
     file.mimetype.split("/")[1] === "png" ||
     file.mimetype.split("/")[1] === "jpeg"

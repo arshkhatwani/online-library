@@ -31,6 +31,11 @@ const bookSchema = new Schema({
     type: Number,
     default: 0,
   },
+
+  coverFileType: {
+    type: String,
+    required: true,
+  },
 });
 
 const bookModel = mongoose.model("books", bookSchema);
