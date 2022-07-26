@@ -45,4 +45,15 @@ const getBooks = async (req, res) => {
   }
 };
 
-module.exports = { uploadBook, getBooks };
+const getBookById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = await bookModel.findOne({ _id: id });
+    res.status(200).json(data);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+};
+
+module.exports = { uploadBook, getBooks, getBookById };

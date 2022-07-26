@@ -1,6 +1,10 @@
 const express = require("express");
 const bookUpload = require("../middlewares/bookUpload");
-const { uploadBook, getBooks } = require("../services/bookServices");
+const {
+  uploadBook,
+  getBooks,
+  getBookById,
+} = require("../services/bookServices");
 const router = express.Router();
 
 router.post(
@@ -13,5 +17,7 @@ router.post(
 );
 
 router.get("/", getBooks);
+
+router.get("/:id", getBookById);
 
 module.exports = router;
