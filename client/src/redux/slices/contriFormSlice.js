@@ -14,7 +14,7 @@ export const submitForm = createAsyncThunk(
     try {
       const res = await axios.post(serverUrl + "/books/upload", formBody);
       //   console.log(res);
-      return res.data();
+      return res.data;
     } catch (e) {
       console.log(e);
       thunkAPI.rejectWithValue("Could not add book");
