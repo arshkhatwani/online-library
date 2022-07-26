@@ -10,6 +10,7 @@ function HomeBooks() {
 
   useEffect(() => {
     dispatch(getBooks({ keyword: "" }));
+    // eslint-disable-next-line
   }, []);
 
   if (isLoading) return <Spinner animation="border" variant="primary" />;
