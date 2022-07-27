@@ -43,3 +43,16 @@ body {
   letter-spacing: 2px;
   font-weight: bold;
 }
+
+.bookTabTitle {
+  font-weight: 600;
+}
+
+.bookTabAuthor {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.bookTabPublish {
+  font-size: 1rem;
+}

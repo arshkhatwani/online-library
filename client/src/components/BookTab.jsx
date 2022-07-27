@@ -7,7 +7,7 @@ function BookTab(props) {
   const bookId = bookData._id;
 
   return (
-    <div className="d-flex flex-row my-4 border border-secondary overflow-hidden rounded-4">
+    <div className="d-flex flex-row my-4 border border-secondary overflow-hidden rounded-4 shadow">
       <div className="flex-2">
         <img
           src={serverUrlWithImage + `/${bookId}.${bookData.coverFileType}`}
@@ -20,16 +20,24 @@ function BookTab(props) {
       <div className="flex-8 d-flex flex-column justify-content-center px-4">
         <div>
           <Link to={`/book/${bookId}`}>
-            <h4>{bookData.title}</h4>
+            <h4 className="bookTabTitle">{bookData.title}</h4>
           </Link>
-          <h5>{bookData.publication || "Unknown Publication"}</h5>
+          <h5 className="bookTabPublish">
+            {bookData.publication || "Unknown Publication"}
+          </h5>
         </div>
 
         <div>
-          <h4>{bookData.author}</h4>
+          <h4 className="bookTabAuthor">{bookData.author}</h4>
         </div>
-        <div>Year: {bookData.publishYear || "Unknown year"}</div>
-        <div>{bookData.category}</div>
+
+        <div className="d-flex flex-row">
+          {bookData.publishYear !== 0 && (
+            <div style={{ marginRight: "1rem" }}>{bookData.publishYear}</div>
+          )}
+
+          <div>{bookData.category}</div>
+        </div>
       </div>
     </div>
   );
