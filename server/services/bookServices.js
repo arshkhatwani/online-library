@@ -31,12 +31,12 @@ const getBooks = async (req, res) => {
     var { keyword } = req.query;
     keyword = keyword || "";
 
-    const exp1 = { title: { $regex: `.*${keyword}.`, $options: "i" } };
-    const exp2 = { author: { $regex: `.*${keyword}.`, $options: "i" } };
+    // const exp1 = { title: { $regex: `.*${keyword}.`, $options: "i" } };
+    // const exp2 = { author: { $regex: `.*${keyword}.`, $options: "i" } };
 
-    const books = await bookModel.find({
-      $or: [exp1, exp2],
-    });
+    const exp = keyword != "" ? { $text: { $search: keyword } } : {};
+
+    const books = await bookModel.find(exp);
 
     res.status(200).json(books);
   } catch (e) {
