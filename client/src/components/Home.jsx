@@ -6,7 +6,9 @@ import SearchBar from "./SearchBar";
 function Home() {
   return (
     <div className="d-flex flex-column justify-content-center py-3 px-5">
-      <h1 className="text-center mb-3">This is home</h1>
+      <div className="text-center mb-3 mainheading">
+        ONLINE <br /> LIBRARY
+      </div>
       <SearchBar />
 
       <HomeBooks />
