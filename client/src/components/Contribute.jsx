@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { setFormData, submitForm } from "../redux/slices/contriFormSlice";
 import NavbarComp from "./NavbarComp";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   "Self Help",
@@ -21,6 +22,7 @@ const Required = () => <span className="text-danger">*</span>;
 function Contribute() {
   const { formData } = useSelector((store) => store.contriForm);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [bookFile, setBookFile] = useState();
   const [bookCoverFile, setBookCoverFile] = useState();
@@ -41,6 +43,8 @@ function Contribute() {
     formBody.append("bookCoverFile", bookCoverFile);
 
     dispatch(submitForm({ formBody }));
+
+    navigate("/", { replace: true });
   };
 
   return (
