@@ -15,7 +15,7 @@ function GoogleSignIn(props) {
       // console.log(res.data);
     } catch (e) {
       //   console.log(e);
-      alert("Could not login");
+      alert("Could not authenticate");
     }
   };
 
