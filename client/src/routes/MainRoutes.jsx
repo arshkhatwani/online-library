@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import Contribute from "../components/Contribute";
 import BookDetail from "../components/BookDetail";
 import SearchResults from "../components/SearchResults";
+import Register from "../components/Auth/Register";
 
 function MainRoutes() {
   return (
@@ -12,6 +13,7 @@ function MainRoutes() {
       <Route path="/contribute" element={<Contribute />} />
       <Route path="/book/:bookId" element={<BookDetail />} />
       <Route path="/searchresults" element={<SearchResults />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 }
